@@ -1,5 +1,66 @@
 <!DOCTYPE html>
 <html lang="ja" dir="ltr">
+   <meta charset="UTF-8">
+   <head>
+      <meta name="google-site-verification" content="MwqbMa2EIEr7I59Lej4Zy9ZHd1PN6DK9N126tWU9IHc" />
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+      <!-- For Android -->
+      <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+      <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+      <!-- For Apple Touch Icon -->
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+      <title>2024年度神奈川県公立高校入試まで</title>
+      <script>
+         const colors = ["color1", "color2", "color3", "color4", "color5", "color6", "color7", "color8", "color9", "color10", "color11", "color12", "color13", "color14", "color15", "color16", "color17", "color18", "color19", "color20"];
+             let currentColorIndex = 0;
+
+             function updateColor() {
+                 const countdownDivs = document.querySelectorAll("#rgb-on div");
+                 countdownDivs.forEach((div) => {
+                     div.className = colors[currentColorIndex];
+                 });
+
+                 currentColorIndex = (currentColorIndex + 1) % colors.length;
+             }
+
+             let alertShown = false;
+
+function updateCountdown() {
+    const targetDate = new Date("2024-02-14T00:00:00"); // ターゲットの日付を設定
+    const currentDate = new Date(); // 現在の日付を取得
+    const timeDifference = targetDate - currentDate; // 残り時間を計算
+
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+    // #rgb-on の更新
+    rgbOnCountdownDiv.querySelector("#days").textContent = days;
+    rgbOnCountdownDiv.querySelector("#hours").textContent = hours;
+    rgbOnCountdownDiv.querySelector("#minutes").textContent = minutes;
+    rgbOnCountdownDiv.querySelector("#seconds").textContent = seconds;
+
+    // カウントダウンが終了したらテキストを表示
+    if (timeDifference <= 0 && !alertShown) {
+        alertShown = true;
+        const userResponse = window.confirm("カウントダウンが終了しました。\n「OK」をクリックしていただくと、別のページへリダイレクトします。\n「キャンセル」をクリックしていただくと、前のページへリダイレクトします。");
+
+        if (userResponse) {
+            // OKがクリックされた場合の処理
+            window.location.href = "countdown-finished.html";
+        } else {
+            // Cancelがクリックされた場合の処理
+            window.history.back();
+        }
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,481 +83,305 @@
       margin-right: 20px;
       width: 45%;
     }
-
-    .quiz-container {
-    display: none;
-    flex-wrap: wrap;
-    max-width: 1000px; 
-    margin: 10 auto;
-  }
-
-  .quiz-button,
-  .show-answer-button,
-  .reset-button {
-    display: inline-block;
-    padding: 15px 30px;
-    border: flex;
-    border-radius: 20px;
-    background-color: rgb(14, 108, 151);
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-
-    .year-input {
-      width: 50px;
-      padding: 5px;
-      border: flex;
-      border-color: #000000;
-      border-radius: 8px;
-    }
-
-    .result-icon {
-      margin-right: 10px;
-      font-size: 20px;
-    }
-
-    .quiz-button:hover, .show-answer-button:hover, .reset-button:hover {
-      background-color: #c7e908;
-    }
-
-     /* パスワード入力フォームのスタイル */
-     #password {
-      width: 150px;
-      padding: 5px;
-      border: 1px solid #cccccc;
-      border-radius: 8px;
-    }
-
-    .password-container {
-      text-align: center;
-    }
-
-    /* ログインボタンのスタイル */
-button {
-  display: inline-block;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(13, 207, 241);
-  color: #fff;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
 }
 
-button:hover {
-  background-color: #c7e908;
-}
+setInterval(updateCountdown, 1000); // 1秒ごとにカウントダウンを更新する
+setInterval(updateColor, 10); // 0.01秒ごとにカラーを切り替える
+
+         console.log("%cHey!", "color: #88F; font-size: 500%; font-weight:bold;text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83333px 0.983333px 0px, rgb(0, 0, 0) 2.35px 1.85px 0px, rgb(0, 0, 0) 1.61667px 2.51667px 0px, rgb(0, 0, 0) 0.7px 2.91667px 0px, rgb(0, 0, 0) -0.283333px 2.98333px 0px, rgb(0, 0, 0) -1.25px 2.73333px 0px, rgb(0, 0, 0) -2.06667px 2.16667px 0px, rgb(0, 0, 0) -2.66667px 1.36667px 0px, rgb(0, 0, 0) -2.96667px 0.416667px 0px, rgb(0, 0, 0) -2.95px -0.566667px 0px, rgb(0, 0, 0) -2.6px -1.5px 0px, rgb(0, 0, 0) -1.96667px -2.26667px 0px, rgb(0, 0, 0) -1.11667px -2.78333px 0px, rgb(0, 0, 0) -0.133333px -3px 0px, rgb(0, 0, 0) 0.85px -2.88333px 0px, rgb(0, 0, 0) 1.75px -2.43333px 0px, rgb(0, 0, 0) 2.45px -1.73333px 0px, rgb(0, 0, 0) 2.88333px -0.833333px 0px;");
+      </script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+      <style>
+         body {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+         background-color: black;
+         }
+
+         @media screen and (min-width: 1000px) {
+         /* pcのスタイル */
+         h1 {
+         font-size: 86px;
+         font-family: 'Dela Gothic One', cursive;
+         color: yellow
+         }
+
+         .pc-only {
+         display: block;
+         }
+
+         .mobile-only {
+         display: none;
+         }
+
+         .mobile-only-2 {
+         display: none;
+         }
+
+         .title {
+         font-size: 18px;
+         color: rgb(163, 163, 163);
+         }
+
+         }
+         @media screen and (max-width: 999px) {
+         /* スマホのスタイル */
+         h1 {
+         font-size: 55px;
+         font-family: 'Dela Gothic One', cursive;
+         color: yellow
+         }
+
+         .pc-only {
+         display: none;
+         }
+
+         .mobile-only {
+         display: block;
+         font-size: 80px;
+         font-family: 'Dela Gothic One', cursive;
+         color: yellow; 
+         justify-content: center;
+         align-items: center; 
+         }
+
+         .mobile-only-2 {
+         display: block;
+         font-size: 80px;
+         font-family: 'Dela Gothic One', cursive;
+         color: yellow; 
+         justify-content: center;
+         align-items: center;
+         }
+
+         #countdown {
+         display: flex;
+         font-size: 75px;
+         align-items: center;
+         justify-content: center;
+         font-family: 'Noto Serif JP', serif;
+         }
+
+         #rgb-on {
+         display: flex;
+         font-size: 75px;
+         align-items: center;
+         justify-content: center;
+         font-family: 'Noto Serif JP', serif;
+         }
+
+         .close-button {
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         cursor: pointer;
+         font-weight: bold;
+         font-size: 65px;
+         line-height: 1;
+         }
+
+         .rgb-button {
+         position: fixed;
+         bottom: 1em;
+         left: 1em;
+         background-color: #333; /* 背景色を灰色に設定 */
+         color: #fff; /* テキストの色を白に設定 */
+         padding: 25px; /* 内側の余白を設定 */
+         z-index: 999; /* 他の要素の上に表示 */
+         border-radius: 5px;
+         border: 2px solid #ccc;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+         }
+
+         .rgb {
+         padding: 20px;
+         font-size: 50px;
+         -webkit-font-smoothing:auto
+         }
+
+         .title {
+         font-size: 50px;
+         color: rgb(163, 163, 163);
+         }
+
+         .base {
+         width: 91px;
+         border-radius: 26px;
+         height: 52px;
+         background-color: #ddd;
+         }
+
+         .circle {
+         position: absolute;
+         top: 8px;
+         left: 6px;
+         width: 38px;
+         height: 38px;
+         border-radius: 36px;
+         background-color: rgb(255, 255, 255);
+         }
+
+         /* スマホのスタイルここまで */}
+
+         @media screen and (min-width: 1000px) {
+         /* PCのスタイル */
+         #countdown {
+         display: flex;
+         font-size: 75px;
+         align-items: center;
+         justify-content: center;
+         font-family: 'Noto Serif JP', serif;
+         }
+
+         #rgb-on {
+         display: flex;
+         font-size: 75px;
+         align-items: center;
+         justify-content: center;
+         font-family: 'Noto Serif JP', serif;
+         }
+
+         .base {
+         width: 56px;
+         border-radius: 16px;
+         height: 32px;
+         background-color: #ddd;
+         }
+
+         .close-button {
+         position: absolute;
+         top: 5px;
+         right: 5px;
+         cursor: pointer;
+         font-weight: bold;
+         font-size: 25px;
+         line-height: 1;
+         }
+
+         .rgb-button {
+         position: fixed;
+         bottom: 1em;
+         left: 1em;
+         background-color: #333; /* 背景色を灰色に設定 */
+         color: #fff; /* テキストの色を白に設定 */
+         padding: 10px; /* 内側の余白を設定 */
+         z-index: 999; /* 他の要素の上に表示 */
+         border-radius: 5px;
+         border: 2px solid #ccc;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+         }
+
+         .rgb {
+         padding: 20px;
+         font-size: 18px;
+         -webkit-font-smoothing:auto
+         }
+
+         .circle {
+         position: absolute;
+         top: 4px;
+         left: 4px;
+         width: 24px;
+         height: 24px;
+         border-radius: 12px;
+         background-color: rgb(255, 255, 255);
+         }
+
+         /* PCのスタイルここまで */}
+
+         /*共通のスタイル*/
+         .copyright {
+         text-align: center; /* コピーライトを中央に配置する */
+         position: relative;
+         border: solid 2px red;
+         display: inline-block;
+         width: 50em;
+         height: 4em;
+         }
+
+         .copyright font {
+         font-size: 30px; /* コピーライトのフォントサイズを0.9remに変更 */
+         }
 
 
-    /* パスワード関連のスタイル */
-    #password-result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
+         #countdown div {
+         margin: 0 10px;
+         }
 
-    /* 正解時のテキストの色 */
-    .success-text {
-      color: green;
-    }
+         #rgb-on div {
+         margin: 0 10px;
+         }
 
-    /* 不正解時のテキストの色 */
-    .error-text {
-      color: red;
-    }
+         .secondary-button {
+         background-color: #ccc;
+         color: #333;
+         text-decoration: none;
+         padding: 3px 1px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         margin: 0 auto;
+         width: 10em;
+         }
 
-       /* フォーカス時のスタイル */
-    .year-input:focus {
-      outline: none; /* デフォルトのフォーカス時のアウトラインを非表示にする */
-      border-color: #006eff; /* フォーカス時のボーダーカラーを緑に設定 */
-      animation: blink 800ms infinite; /* 1秒ごとに繰り返す点滅アニメーションを適用 */
-    }
+         .close-button:hover {
+         color: #f00; /* ホバー時に色を変更 */
+         }
 
-    @keyframes blink {
-    20% {
-        opacity: 1; /* 不透明度を最大に設定 */
-    }
-    50% {
-        opacity: 0; /* 不透明度を最小に設定 */
-    }
-    100% {
-        opacity: 1; /* 不透明度を最大に設定 */
-    }
-}
-  </style>
-</head>
+         /* カウントダウンのカラーパレット */
+         .color1 {
+         color: red;
+         }
 
-<body>
-  <div id="password-container">
-    <label for="password">Password:</label>
-    <input type="password" id="password">
-    <button onclick="checkPassword()">Login</button>
-    <div id="password-result">
-    </div>
-  </div>
-  <div class="quiz-container">
-    <div class="quiz-box">
-      <span class="result-icon" id="result1">
-      </span>
-      <input type="text" class="year-input" id="quiz1" onkeydown="moveToNext(event, 'quiz2')" oninput="validateInput(this)">
-      <span class="answer" id="answer0">
-      </span>
-      <span>ラクスマンが根室に来航</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result2">
-      </span>
-      <input type="text" class="year-input" id="quiz2" onkeydown="moveToNext(event, 'quiz3')" oninput="validateInput(this)">
-      <span class="answer" id="answer1">
-      </span>
-      <span>異国船打払令</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result3">
-      </span>
-      <input type="text" class="year-input" id="quiz3" onkeydown="moveToNext(event, 'quiz4')" oninput="validateInput(this)">
-      <span class="answer" id="answer2">
-      </span>
-      <span>蛮社の獄</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result4">
-      </span>
-      <input type="text" class="year-input" id="quiz4" onkeydown="moveToNext(event, 'quiz5')" oninput="validateInput(this)">
-      <span class="answer" id="answer3">
-      </span>
-      <span>アヘン戦争</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result5">
-      </span>
-      <input type="text" class="year-input" id="quiz5" onkeydown="moveToNext(event, 'quiz6')" oninput="validateInput(this)">
-      <span class="answer" id="answer4">
-      </span>
-      <span>桜田門外の変</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result6">
-      </span>
-      <input type="text" class="year-input" id="quiz6" onkeydown="moveToNext(event, 'quiz7')" oninput="validateInput(this)">
-      <span class="answer" id="answer5">
-      </span>
-      <span>薩英戦争</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result7">
-      </span>
-      <input type="text" class="year-input" id="quiz7" onkeydown="moveToNext(event, 'quiz8')" oninput="validateInput(this)">
-      <span class="answer" id="answer6">
-      </span>
-      <span>薩長同盟の成立</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result8">
-      </span>
-      <input type="text" class="year-input" id="quiz8" onkeydown="moveToNext(event, 'quiz9')" oninput="validateInput(this)">
-      <span class="answer" id="answer7">
-      </span>
-      <span>日英同盟</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result9">
-      </span>
-      <input type="text" class="year-input" id="quiz9" onkeydown="moveToNext(event, 'quizzes0')" oninput="validateInput(this)">
-      <span class="answer" id="answer8">
-      </span>
-      <span>国際連盟の成立</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="result0">
-      </span>
-      <input type="text" class="year-input" id="quizzes0" onkeydown="moveToNext(event, 'quizzes1')" oninput="validateInput(this)">
-      <span class="answer" id="answer9">
-      </span>
-      <span>日中戦争の開始</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results1">
-      </span>
-      <input type="text" class="year-input" id="quizzes1" onkeydown="moveToNext(event, 'quizzes2')" oninput="validateInput(this)">
-      <span class="answer" id="answer10">
-      </span>
-      <span>新日米安全保障条約</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results2">
-      </span>
-      <input type="text" class="year-input" id="quizzes2" onkeydown="moveToNext(event, 'quizzes3')" oninput="validateInput(this)">
-      <span class="answer" id="answer11">
-      </span>
-      <span>正長の土一揆</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results3">
-      </span>
-      <input type="text" class="year-input" id="quizzes3" onkeydown="moveToNext(event, 'quizzes4')" oninput="validateInput(this)">
-      <span class="answer" id="answer12">
-      </span>
-      <span>山城の国一揆</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results4">
-      </span>
-      <input type="text" class="year-input" id="quizzes4" onkeydown="moveToNext(event, 'quizzes5')" oninput="validateInput(this)">
-      <span class="answer" id="answer13">
-      </span>
-      <span>加賀の一向一揆</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results5">
-      </span>
-      <input type="text" class="year-input" id="quizzes5" onkeydown="moveToNext(event, 'quizzes6')" oninput="validateInput(this)">
-      <span class="answer" id="answer14">
-      </span>
-      <span>マゼラン艦隊の世界一周</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results6">
-      </span>
-      <input type="text" class="year-input" id="quizzes6" onkeydown="moveToNext(event, 'quizzes7')" oninput="validateInput(this)">
-      <span class="answer" id="answer15">
-      </span>
-      <span>コロンブスのアメリカ大陸発見</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results7">
-      </span>
-      <input type="text" class="year-input" id="quizzes7" onkeydown="moveToNext(event, 'quizzes8')" oninput="validateInput(this)">
-      <span class="answer" id="answer16">
-      </span>
-      <span>バスコ=ダ=ガマのインド航路発見</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results8">
-      </span>
-      <input type="text" class="year-input" id="quizzes8" onkeydown="moveToNext(event, 'quizzes9')" oninput="validateInput(this)">
-      <span class="answer" id="answer17">
-      </span>
-      <span>最澄が唐から帰国(天台宗)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results9">
-      </span>
-      <input type="text" class="year-input" id="quizzes9" onkeydown="moveToNext(event, 'quizzes10')" oninput="validateInput(this)">
-      <span class="answer" id="answer18">
-      </span>
-      <span>空海が唐から帰国(真言宗)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results10">
-      </span>
-      <input type="text" class="year-input" id="quizzes10" onkeydown="moveToNext(event, 'quizzes11')" oninput="validateInput(this)">
-      <span class="answer" id="answer19">
-      </span>
-      <span>生類憐れみの令(徳川綱吉)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results11">
-      </span>
-      <input type="text" class="year-input" id="quizzes11" onkeydown="moveToNext(event, 'quizzes12')" oninput="validateInput(this)">
-      <span class="answer" id="answer20">
-      </span>
-      <span>生麦事件</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results12">
-      </span>
-      <input type="text" class="year-input" id="quizzes12" onkeydown="moveToNext(event, 'quizzes13')" oninput="validateInput(this)">
-      <span class="answer" id="answer21">
-      </span>
-      <span>民撰議院設立の建白書</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results13">
-      </span>
-      <input type="text" class="year-input" id="quizzes13" onkeydown="moveToNext(event, 'quizzes14')" oninput="validateInput(this)">
-      <span class="answer" id="answer22">
-      </span>
-      <span>公事方御定書</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results14">
-      </span>
-      <input type="text" class="year-input" id="quizzes14" onkeydown="moveToNext(event, 'quizzes15')" oninput="validateInput(this)">
-      <span class="answer" id="answer23">
-      </span>
-      <span>日朝修好条規</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results15">
-      </span>
-      <input type="text" class="year-input" id="quizzes15" onkeydown="moveToNext(event, 'quizzes16')" oninput="validateInput(this)">
-      <span class="answer" id="answer24">
-      </span>
-      <span>国会期成同盟</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results16">
-      </span>
-      <input type="text" class="year-input" id="quizzes16" onkeydown="moveToNext(event, 'quizzes17')" oninput="validateInput(this)">
-      <span class="answer" id="answer25">
-      </span>
-      <span>自由党の結成</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results17">
-      </span>
-      <input type="text" class="year-input" id="quizzes17" onkeydown="moveToNext(event, 'quizzes18')" oninput="validateInput(this)">
-      <span class="answer" id="answer26">
-      </span>
-      <span>立憲改進党の結成</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results18">
-      </span>
-      <input type="text" class="year-input" id="quizzes18" onkeydown="moveToNext(event, 'quizzes19')" oninput="validateInput(this)">
-      <span class="answer" id="answer27">
-      </span>
-      <span>秩父事件</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results19">
-      </span>
-      <input type="text" class="year-input" id="quizzes19" onkeydown="moveToNext(event, 'quizzes20')" oninput="validateInput(this)">
-      <span class="answer" id="answer28">
-      </span>
-      <span>ナポレオンが皇帝になる</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results20">
-      </span>
-      <input type="text" class="year-input" id="quizzes20" onkeydown="moveToNext(event, 'quizzes21')" oninput="validateInput(this)">
-      <span class="answer" id="answer29">
-      </span>
-      <span>教育基本法が制定(公布)される</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results21">
-      </span>
-      <input type="text" class="year-input" id="quizzes21" onkeydown="moveToNext(event, 'quizzes22')" oninput="validateInput(this)">
-      <span class="answer" id="answer30">
-      </span>
-      <span>南北戦争が始まる(～1865)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results22">
-      </span>
-      <input type="text" class="year-input" id="quizzes22" onkeydown="moveToNext(event, 'quizzes23')" oninput="validateInput(this)">
-      <span class="answer" id="answer31">
-      </span>
-      <span>中華人民共和国が成立する</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results23">
-      </span>
-      <input type="text" class="year-input" id="quizzes23" onkeydown="moveToNext(event, 'quizzes24')" oninput="validateInput(this)">
-      <span class="answer" id="answer32">
-      </span>
-      <span>中華民国が成立する</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results24">
-      </span>
-      <input type="text" class="year-input" id="quizzes24" onkeydown="moveToNext(event, 'quizzes25')" oninput="validateInput(this)">
-      <span class="answer" id="answer33">
-      </span>
-      <span>辛亥革命が起こる</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results25">
-      </span>
-      <input type="text" class="year-input" id="quizzes25" onkeydown="moveToNext(event, 'quizzes26')" oninput="validateInput(this)">
-      <span class="answer" id="answer34">
-      </span>
-      <span>甲午農民戦争が起こる</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results26">
-      </span>
-      <input type="text" class="year-input" id="quizzes26" onkeydown="moveToNext(event, 'quizzes27')" oninput="validateInput(this)">
-      <span class="answer" id="answer35">
-      </span>
-      <span>大逆事件が起こる</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results27">
-      </span>
-      <input type="text" class="year-input" id="quizzes27" onkeydown="moveToNext(event, 'quizzes28')" oninput="validateInput(this)">
-      <span class="answer" id="answer36">
-      </span>
-      <span>明が中国を統一する</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results28">
-      </span>
-      <input type="text" class="year-input" id="quizzes28" onkeydown="moveToNext(event, 'quizzes29')" oninput="validateInput(this)">
-      <span class="answer" id="answer37">
-      </span>
-      <span>安政の大獄(～1859)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results29">
-      </span>
-      <input type="text" class="year-input" id="quizzes29" onkeydown="moveToNext(event, 'quizzes30')" oninput="validateInput(this)">
-      <span class="answer" id="answer38">
-      </span>
-      <span>フランス革命(～1799)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results30">
-      </span>
-      <input type="text" class="year-input" id="quizzes30" onkeydown="moveToNext(event, 'quizzes31')" oninput="validateInput(this)">
-      <span class="answer" id="answer39">
-      </span>
-      <span>新羅が朝鮮半島を統一</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results31">
-      </span>
-      <input type="text" class="year-input" id="quizzes31" onkeydown="moveToNext(event, 'quizzes32')" oninput="validateInput(this)">
-      <span class="answer" id="answer40">
-      </span>
-      <span>東インド会社設立</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results32">
-      </span>
-      <input type="text" class="year-input" id="quizzes32" onkeydown="moveToNext(event, 'quizzes33')" oninput="validateInput(this)">
-      <span class="answer" id="answer41">
-      </span>
-      <span>レザノフの長崎来航</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results33">
-      </span>
-      <input type="text" class="year-input" id="quizzes33" onkeydown="moveToNext(event, 'quizzes34')" oninput="validateInput(this)">
-      <span class="answer" id="answer42">
-      </span>
-      <span>ベトナム戦争(～1975)</span>
-    </div>
-    <div class="quiz-box">
-      <span class="result-icon" id="results34">
-      </span>
-      <input type="text" class="year-input" id="quizzes34" onkeydown="moveToNext(event, 'quizzes35')" oninput="validateInput(this)">
-      <span class="answer" id="answer43">
-      </span>
-      <span>バテレン追放令</span>
-    </div>
-    <button class="quiz-button" onclick="checkAnswers(event)">答えを確認する</button>
-    <button class="show-answer-button" onclick="showAnswers()">解を表示する</button>
-    <button class="reset-button" onclick="resetAnswers()">リセットする</button>
-  </div>
-  <script>
-    var _0x3af698=_0x629e;(function(_0x32a053,_0x1e1054){var _0x5c6a44=_0x629e,_0x49f7db=_0x32a053();while(!![]){try{var _0x2c935d=-parseInt(_0x5c6a44(0x1b7))/0x1+-parseInt(_0x5c6a44(0x16d))/0x2*(-parseInt(_0x5c6a44(0x1da))/0x3)+-parseInt(_0x5c6a44(0x143))/0x4*(parseInt(_0x5c6a44(0x1c3))/0x5)+parseInt(_0x5c6a44(0x165))/0x6*(parseInt(_0x5c6a44(0x1a2))/0x7)+parseInt(_0x5c6a44(0x18a))/0x8+parseInt(_0x5c6a44(0x19e))/0x9+parseInt(_0x5c6a44(0x1d3))/0xa*(-parseInt(_0x5c6a44(0x1a6))/0xb);if(_0x2c935d===_0x1e1054)break;else _0x49f7db['push'](_0x49f7db['shift']());}catch(_0x3ca0ef){_0x49f7db['push'](_0x49f7db['shift']());}}}(_0x525f,0x1a111));var _0x40bf6c=_0x35c3;(function(_0x4a151f,_0xa235c6){var _0x42e626=_0x629e,_0x9be039=_0x35c3,_0x238988=_0x4a151f();while(!![]){try{var _0xa409e1=parseInt(_0x9be039(0x181))/0x1+-parseInt(_0x9be039(0x1a6))/0x2+parseInt(_0x9be039(0x1bd))/0x3+parseInt(_0x9be039(0x1f9))/0x4+parseInt(_0x9be039(0x1ba))/0x5*(parseInt(_0x9be039(0x182))/0x6)+parseInt(_0x9be039(0x18f))/0x7+-parseInt(_0x9be039(0x1da))/0x8;if(_0xa409e1===_0xa235c6)break;else _0x238988[_0x42e626(0x1a5)](_0x238988['shift']());}catch(_0x18a892){_0x238988['push'](_0x238988[_0x42e626(0x1cd)]());}}}(_0x19ef,0x833d4));function _0x629e(_0x54032f,_0x3bb9fd){var _0x525f2c=_0x525f();return _0x629e=function(_0x629e96,_0x597d97){_0x629e96=_0x629e96-0x13e;var _0x457b0e=_0x525f2c[_0x629e96];return _0x457b0e;},_0x629e(_0x54032f,_0x3bb9fd);}function _0x35c3(_0xc6038e,_0x1dd567){var _0x129085=_0x19ef();return _0x35c3=function(_0x25af24,_0x2dd501){_0x25af24=_0x25af24-0x169;var _0x57565b=_0x129085[_0x25af24];return _0x57565b;},_0x35c3(_0xc6038e,_0x1dd567);}function _0x3c41(){var _0x8e030b=_0x629e,_0x1c927d=_0x35c3,_0x5910ab=[_0x1c927d(0x175),_0x1c927d(0x1c2),_0x1c927d(0x17c),_0x1c927d(0x1cb),_0x1c927d(0x191),_0x1c927d(0x180),_0x1c927d(0x1c9),'quizzes29',_0x8e030b(0x18e),_0x1c927d(0x1e7),_0x1c927d(0x1fa),_0x8e030b(0x17c),_0x1c927d(0x1f7),_0x1c927d(0x179),_0x1c927d(0x1df),_0x1c927d(0x1ea),_0x1c927d(0x18e),_0x1c927d(0x1dd),_0x1c927d(0x1b1),'622696htmxof',_0x8e030b(0x1bd),_0x8e030b(0x1e3),_0x1c927d(0x1af),_0x1c927d(0x16f),_0x1c927d(0x18d),_0x8e030b(0x15c),_0x1c927d(0x1f4),_0x1c927d(0x170),_0x8e030b(0x1c2),_0x1c927d(0x199),_0x1c927d(0x1f6),_0x1c927d(0x16a),_0x1c927d(0x196),_0x8e030b(0x1bf),_0x1c927d(0x188),_0x1c927d(0x16b),_0x8e030b(0x163),_0x1c927d(0x1ca),_0x1c927d(0x1de),_0x1c927d(0x1d5),'padStart',_0x1c927d(0x16e),_0x1c927d(0x1c6),_0x1c927d(0x1c5),_0x1c927d(0x1ee),_0x1c927d(0x1ef),_0x1c927d(0x1d4),_0x1c927d(0x1d8),'className',_0x8e030b(0x1c4),_0x1c927d(0x1a0),_0x1c927d(0x195),_0x8e030b(0x1a3),_0x1c927d(0x1ab),_0x8e030b(0x1c7),_0x1c927d(0x17f),_0x1c927d(0x1fb),_0x8e030b(0x175),_0x8e030b(0x153),'quiz2',_0x1c927d(0x19b),_0x1c927d(0x1a5),_0x1c927d(0x1d7),_0x8e030b(0x1d5),'results10',_0x1c927d(0x178),_0x1c927d(0x1bf),_0x8e030b(0x1a8),_0x8e030b(0x1b4),_0x1c927d(0x1bc),_0x1c927d(0x176),_0x1c927d(0x1a9),_0x1c927d(0x1b4),_0x1c927d(0x19f),_0x1c927d(0x1d1),_0x1c927d(0x1ec),_0x1c927d(0x1d6),'answer6',_0x1c927d(0x1e8),_0x8e030b(0x18d),_0x1c927d(0x1c1),_0x8e030b(0x1ce),_0x1c927d(0x1b9),_0x1c927d(0x1cd),_0x8e030b(0x188),_0x8e030b(0x16e),_0x1c927d(0x194),_0x1c927d(0x1db),_0x1c927d(0x1e9),_0x8e030b(0x162),_0x1c927d(0x1d2),_0x1c927d(0x1fc),_0x1c927d(0x190),_0x8e030b(0x197),_0x8e030b(0x1a9),_0x1c927d(0x1a3),_0x1c927d(0x1aa),_0x1c927d(0x1e2),_0x1c927d(0x18c),_0x1c927d(0x183),_0x1c927d(0x1ce),_0x1c927d(0x1bb),_0x1c927d(0x19e),_0x1c927d(0x18a),_0x1c927d(0x1a8),_0x8e030b(0x172),_0x1c927d(0x1d3),_0x1c927d(0x19d),_0x1c927d(0x1b5),_0x1c927d(0x185),_0x1c927d(0x1e1),_0x1c927d(0x1b3),_0x1c927d(0x19c),_0x1c927d(0x1b8),_0x1c927d(0x1fe),_0x1c927d(0x171),_0x8e030b(0x187),'<strong>',_0x1c927d(0x198),_0x1c927d(0x19a),_0x1c927d(0x1e4),_0x1c927d(0x169),_0x1c927d(0x173),_0x8e030b(0x1cf),_0x1c927d(0x1e0),_0x1c927d(0x1ae),_0x1c927d(0x1d0),_0x8e030b(0x186),_0x1c927d(0x1f5),_0x1c927d(0x1c8),_0x8e030b(0x181),_0x1c927d(0x1cc),_0x1c927d(0x17e),_0x1c927d(0x1b2),_0x1c927d(0x1b7),_0x1c927d(0x17b),_0x1c927d(0x1f2),'quizzes0',_0x1c927d(0x1b0),_0x8e030b(0x1d8),_0x8e030b(0x141),_0x1c927d(0x1b6),_0x1c927d(0x1c3),_0x1c927d(0x189),_0x1c927d(0x17a),_0x1c927d(0x197),_0x8e030b(0x13f),_0x1c927d(0x1fd),_0x1c927d(0x193),_0x1c927d(0x1a7)];return _0x3c41=function(){return _0x5910ab;},_0x3c41();}var _0x174954=_0x5455;(function(_0x284054,_0x2042e7){var _0x25a452=_0x629e,_0x451d89=_0x35c3,_0x2947de=_0x5455,_0x29ee50=_0x284054();while(!![]){try{var _0x14a245=-parseInt(_0x2947de(0x1f0))/0x1*(-parseInt(_0x2947de(0x1c2))/0x2)+-parseInt(_0x2947de(0x1ef))/0x3+-parseInt(_0x2947de(0x19e))/0x4*(-parseInt(_0x2947de(0x1f2))/0x5)+parseInt(_0x2947de(0x1f1))/0x6+parseInt(_0x2947de(0x200))/0x7*(-parseInt(_0x2947de(0x227))/0x8)+-parseInt(_0x2947de(0x20f))/0x9*(parseInt(_0x2947de(0x1bc))/0xa)+parseInt(_0x2947de(0x219))/0xb*(parseInt(_0x2947de(0x21d))/0xc);if(_0x14a245===_0x2042e7)break;else _0x29ee50['push'](_0x29ee50[_0x451d89(0x1ad)]());}catch(_0x3afe90){_0x29ee50[_0x451d89(0x172)](_0x29ee50[_0x25a452(0x1cd)]());}}}(_0x3c41,0x91d02));var quizData=[{'id':_0x3af698(0x1be),'resultId':_0x40bf6c(0x1c7),'answer':0x700,'answerId':_0x174954(0x222)},{'id':_0x174954(0x1b9),'resultId':_0x40bf6c(0x1f8),'answer':0x721,'answerId':_0x174954(0x1df)},{'id':_0x174954(0x21f),'resultId':_0x174954(0x22b),'answer':0x72f,'answerId':_0x40bf6c(0x1e3)},{'id':_0x40bf6c(0x1a2),'resultId':_0x174954(0x1e9),'answer':0x730,'answerId':_0x174954(0x1f6)},{'id':_0x174954(0x1b4),'resultId':_0x174954(0x1f4),'answer':0x744,'answerId':_0x174954(0x20a)},{'id':_0x174954(0x1ee),'resultId':_0x40bf6c(0x1f3),'answer':0x747,'answerId':_0x40bf6c(0x1f0)},{'id':_0x174954(0x1d0),'resultId':_0x174954(0x1d6),'answer':0x74a,'answerId':_0x174954(0x1cb)},{'id':_0x3af698(0x14c),'resultId':_0x174954(0x1bf),'answer':0x76e,'answerId':_0x174954(0x1e3)},{'id':_0x174954(0x232),'resultId':_0x40bf6c(0x192),'answer':0x780,'answerId':_0x174954(0x1d7)},{'id':_0x174954(0x207),'resultId':_0x174954(0x214),'answer':0x791,'answerId':_0x174954(0x1bb)},{'id':_0x174954(0x21e),'resultId':_0x40bf6c(0x174),'answer':0x7a8,'answerId':_0x174954(0x212)},{'id':_0x174954(0x217),'resultId':_0x174954(0x1eb),'answer':0x594,'answerId':_0x40bf6c(0x1cf)},{'id':_0x174954(0x1a7),'resultId':_0x174954(0x1b2),'answer':0x5cd,'answerId':_0x174954(0x22f)},{'id':_0x174954(0x1da),'resultId':_0x174954(0x20d),'answer':0x5d0,'answerId':_0x174954(0x1cd)},{'id':_0x174954(0x209),'resultId':_0x40bf6c(0x16c),'answer':0x5f2,'answerId':_0x174954(0x1ed)},{'id':_0x174954(0x1db),'resultId':_0x174954(0x204),'answer':0x5d4,'answerId':_0x174954(0x21c)},{'id':_0x174954(0x1a2),'resultId':_0x174954(0x1e1),'answer':0x5da,'answerId':_0x174954(0x1e2)},{'id':_0x40bf6c(0x1d9),'resultId':_0x174954(0x1ad),'answer':0x325,'answerId':_0x174954(0x1fc)},{'id':_0x174954(0x20c),'resultId':_0x174954(0x1b1),'answer':0x326,'answerId':_0x174954(0x1a5)},{'id':_0x174954(0x1c6),'resultId':_0x174954(0x1be),'answer':0x695,'answerId':_0x174954(0x1fe)},{'id':_0x174954(0x1c8),'resultId':_0x174954(0x210),'answer':0x746,'answerId':_0x174954(0x206)},{'id':_0x174954(0x1ac),'resultId':_0x174954(0x1a0),'answer':0x752,'answerId':_0x174954(0x1ca)},{'id':_0x40bf6c(0x1ac),'resultId':_0x174954(0x1a9),'answer':0x6ce,'answerId':_0x40bf6c(0x186)},{'id':_0x3af698(0x1b9),'resultId':_0x174954(0x1b8),'answer':0x754,'answerId':_0x40bf6c(0x18b)},{'id':_0x40bf6c(0x1eb),'resultId':_0x174954(0x1c7),'answer':0x758,'answerId':_0x174954(0x208)},{'id':_0x174954(0x1ec),'resultId':_0x40bf6c(0x1c4),'answer':0x759,'answerId':_0x40bf6c(0x1ed)},{'id':_0x3af698(0x145),'resultId':_0x174954(0x1e5),'answer':0x75a,'answerId':_0x174954(0x225)},{'id':_0x174954(0x213),'resultId':_0x174954(0x1f8),'answer':0x75c,'answerId':_0x174954(0x1ea)},{'id':_0x174954(0x1dc),'resultId':_0x174954(0x1c4),'answer':0x70c,'answerId':_0x174954(0x230)},{'id':_0x174954(0x1b3),'resultId':_0x174954(0x1c1),'answer':0x79b,'answerId':_0x174954(0x1fb)},{'id':_0x174954(0x1ce),'resultId':_0x174954(0x1de),'answer':0x745,'answerId':_0x174954(0x224)},{'id':_0x174954(0x1e0),'resultId':_0x174954(0x1aa),'answer':0x79d,'answerId':_0x174954(0x215)},{'id':_0x174954(0x202),'resultId':_0x174954(0x205),'answer':0x778,'answerId':_0x174954(0x1d5)},{'id':'quizzes24','resultId':_0x174954(0x22a),'answer':0x777,'answerId':_0x174954(0x1f9)},{'id':_0x40bf6c(0x1be),'resultId':_0x174954(0x1d3),'answer':0x766,'answerId':_0x40bf6c(0x16d)},{'id':_0x174954(0x1c0),'resultId':_0x174954(0x1b6),'answer':0x776,'answerId':_0x174954(0x1b7)},{'id':_0x174954(0x19d),'resultId':_0x174954(0x1ba),'answer':0x558,'answerId':_0x174954(0x218)},{'id':_0x40bf6c(0x1a1),'resultId':_0x174954(0x1f7),'answer':0x742,'answerId':_0x174954(0x19f)},{'id':_0x174954(0x21b),'resultId':_0x174954(0x1a1),'answer':0x6fd,'answerId':_0x174954(0x1e8)},{'id':_0x174954(0x1cf),'resultId':_0x174954(0x229),'answer':0x2a4,'answerId':_0x174954(0x20e)},{'id':_0x174954(0x1ab),'resultId':_0x40bf6c(0x1a4),'answer':0x642,'answerId':_0x174954(0x201)},{'id':_0x174954(0x1d2),'resultId':_0x3af698(0x180),'answer':0x70c,'answerId':_0x174954(0x1c5)},{'id':_0x40bf6c(0x187),'resultId':_0x174954(0x1c9),'answer':0x7a3,'answerId':_0x174954(0x1b0)},{'id':_0x174954(0x1bd),'resultId':_0x174954(0x1d4),'answer':0x633,'answerId':_0x174954(0x228)}];function moveToNext(_0x35c266,_0x4d0eb6){var _0x462f00=_0x40bf6c,_0x39d9f1=_0x174954;if(_0x35c266[_0x39d9f1(0x20b)]===_0x462f00(0x184)){var _0x250cd2=document[_0x39d9f1(0x203)](_0x4d0eb6);_0x250cd2[_0x462f00(0x1e6)]();}}const Password=_0x174954(0x1e4);function _0x19ef(){var _0x3352bc=_0x3af698,_0x278702=['result5','success-text',_0x3352bc(0x1e1),_0x3352bc(0x190),'quiz6',_0x3352bc(0x15e),_0x3352bc(0x178),_0x3352bc(0x1cb),'answer42',_0x3352bc(0x1e2),_0x3352bc(0x1af),_0x3352bc(0x183),'results31',_0x3352bc(0x1ae),_0x3352bc(0x193),_0x3352bc(0x1d6),'error-text',_0x3352bc(0x1ab),_0x3352bc(0x151),_0x3352bc(0x184),_0x3352bc(0x15b),'shift','answer29',_0x3352bc(0x192),'answer24',_0x3352bc(0x194),_0x3352bc(0x140),_0x3352bc(0x1de),_0x3352bc(0x14e),_0x3352bc(0x166),_0x3352bc(0x14d),_0x3352bc(0x171),_0x3352bc(0x19a),_0x3352bc(0x142),'589405stgOoQ',_0x3352bc(0x173),_0x3352bc(0x154),_0x3352bc(0x195),'quizzes25',_0x3352bc(0x198),_0x3352bc(0x156),_0x3352bc(0x176),_0x3352bc(0x1ba),_0x3352bc(0x170),_0x3352bc(0x1a1),_0x3352bc(0x196),_0x3352bc(0x161),_0x3352bc(0x1bb),'querySelector',_0x3352bc(0x19c),_0x3352bc(0x147),_0x3352bc(0x1c0),'answer40',_0x3352bc(0x1ca),_0x3352bc(0x16f),'answer11',_0x3352bc(0x1e0),_0x3352bc(0x13e),_0x3352bc(0x169),'answer38',_0x3352bc(0x1cc),'answer18','answer21',_0x3352bc(0x152),_0x3352bc(0x1d4),'quizzes8','18945816LDvNsf',_0x3352bc(0x199),_0x3352bc(0x16c),_0x3352bc(0x16a),_0x3352bc(0x1e5),_0x3352bc(0x159),_0x3352bc(0x19f),_0x3352bc(0x1b2),_0x3352bc(0x1e4),'answer2','answer3',_0x3352bc(0x172),'focus','12VBPMpY',_0x3352bc(0x164),_0x3352bc(0x160),_0x3352bc(0x189),_0x3352bc(0x19b),_0x3352bc(0x1a0),_0x3352bc(0x1d7),_0x3352bc(0x1dd),_0x3352bc(0x19d),'answer5',_0x3352bc(0x1a7),'answer20','result6',_0x3352bc(0x15d),_0x3352bc(0x1d0),_0x3352bc(0x146),_0x3352bc(0x1aa),_0x3352bc(0x16b),'3131480hZMqJf',_0x3352bc(0x155),_0x3352bc(0x150),_0x3352bc(0x1a4),_0x3352bc(0x1d2),_0x3352bc(0x1b1),_0x3352bc(0x1ac),_0x3352bc(0x14a),_0x3352bc(0x1ad),_0x3352bc(0x18f),_0x3352bc(0x15a),_0x3352bc(0x1b8),_0x3352bc(0x1c9),_0x3352bc(0x17f),_0x3352bc(0x1dc),_0x3352bc(0x1a5),_0x3352bc(0x168),_0x3352bc(0x17d),_0x3352bc(0x18b),_0x3352bc(0x1b0),_0x3352bc(0x14f),_0x3352bc(0x191),'reload',_0x3352bc(0x185),'results23','style',_0x3352bc(0x182),_0x3352bc(0x167),_0x3352bc(0x157),_0x3352bc(0x1c8),_0x3352bc(0x1d1),_0x3352bc(0x17b),_0x3352bc(0x174),_0x3352bc(0x1df),_0x3352bc(0x1b5),_0x3352bc(0x17a),_0x3352bc(0x1b6),_0x3352bc(0x1bc),'results4',_0x3352bc(0x18c),_0x3352bc(0x15f),_0x3352bc(0x1c1),_0x3352bc(0x149),_0x3352bc(0x144),'4518101cFXrVJ',_0x3352bc(0x179),_0x3352bc(0x148),_0x3352bc(0x177),_0x3352bc(0x17e),'results34',_0x3352bc(0x1c6),_0x3352bc(0x1c5),_0x3352bc(0x14b)];return _0x19ef=function(){return _0x278702;},_0x19ef();}function checkPassword(){var _0x351cc2=_0x3af698,_0x2a171b=_0x40bf6c,_0x4c3f6c=_0x174954;const _0x4bd212=document['getElementById'](_0x4c3f6c(0x1a4))[_0x4c3f6c(0x1d1)],_0x3b039=document[_0x4c3f6c(0x203)](_0x4c3f6c(0x1d8)),_0x1bde5e=document[_0x4c3f6c(0x1ff)](_0x2a171b(0x17d));async function _0x4d3261(_0x1522b7){var _0x4e13dd=_0x629e,_0x4c6322=_0x2a171b,_0x4024f1=_0x4c3f6c;const _0x1d7ac4=new TextEncoder(),_0x50eb55=_0x1d7ac4[_0x4024f1(0x22e)](_0x1522b7),_0x5221c9=await crypto[_0x4024f1(0x1af)][_0x4e13dd(0x1d9)](_0x4024f1(0x1a8),_0x50eb55),_0x5a86b5=Array[_0x4c6322(0x1c0)](new Uint8Array(_0x5221c9)),_0x48c7a0=_0x5a86b5[_0x4024f1(0x211)](_0xf21b7=>_0xf21b7[_0x4024f1(0x1fa)](0x10)[_0x4024f1(0x1a6)](0x2,'0'))[_0x4024f1(0x1d9)]('');return _0x48c7a0;}_0x4d3261(_0x4bd212)[_0x351cc2(0x1b3)](_0xab1f57=>{var _0x19a43b=_0x351cc2,_0x4860fa=_0x4c3f6c;_0xab1f57===Password?(_0x1bde5e[_0x4860fa(0x216)]['display']=_0x19a43b(0x158),_0x3b039[_0x4860fa(0x223)]=_0x4860fa(0x1a3),_0x3b039[_0x4860fa(0x1ae)]=_0x4860fa(0x231)):(_0x3b039[_0x4860fa(0x223)]=_0x4860fa(0x226),_0x3b039[_0x4860fa(0x1ae)]=_0x4860fa(0x1e6),_0x1bde5e[_0x4860fa(0x216)][_0x4860fa(0x21a)]=_0x4860fa(0x1c3));});}function updateShowAnswerButton(){var _0xae05e7=_0x40bf6c,_0x2d9321=_0x174954,_0x4f85eb=document[_0xae05e7(0x1c8)](_0x2d9321(0x1cc));hiddenAnswers[_0x2d9321(0x1e7)]>0x0?_0x4f85eb[_0x2d9321(0x216)][_0x2d9321(0x21a)]=_0x2d9321(0x1b5):_0x4f85eb[_0x2d9321(0x216)][_0x2d9321(0x21a)]=_0x2d9321(0x1c3);}function checkAnswers(_0x9ae1e8){var _0x59564c=_0x3af698,_0x16bb01=_0x40bf6c,_0x39de8c=_0x174954;_0x9ae1e8[_0x16bb01(0x1dc)]();for(var _0x526678=0x0;_0x526678<quizData[_0x16bb01(0x1e5)];_0x526678++){var _0x5d08b4=quizData[_0x526678];checkAnswer(_0x5d08b4['id'],_0x5d08b4[_0x59564c(0x1db)],_0x5d08b4[_0x39de8c(0x1fd)]);}updateShowAnswerButton();}function checkAnswer(_0x1a2a6e,_0x43d636,_0x32d703){var _0x3c10a9=_0x40bf6c,_0x525ef6=_0x174954,_0x5ab517=document[_0x525ef6(0x203)](_0x1a2a6e)[_0x525ef6(0x1d1)],_0x76ea0f=document[_0x525ef6(0x203)](_0x43d636);_0x5ab517===_0x32d703[_0x525ef6(0x1fa)]()?(_0x76ea0f[_0x525ef6(0x223)]='✔',_0x76ea0f[_0x525ef6(0x216)][_0x525ef6(0x22d)]=_0x525ef6(0x22c)):(_0x76ea0f[_0x525ef6(0x223)]='❌',_0x76ea0f[_0x525ef6(0x216)][_0x525ef6(0x22d)]=_0x3c10a9(0x177));}function resetAnswers(){var _0x4110e8=_0x174954;location[_0x4110e8(0x221)]();}function _0x5455(_0x59654c,_0x38cee3){var _0x13e166=_0x3c41();return _0x5455=function(_0x29a40d,_0x53a77d){_0x29a40d=_0x29a40d-0x19d;var _0x3c1300=_0x13e166[_0x29a40d];return _0x3c1300;},_0x5455(_0x59654c,_0x38cee3);}function toggleAnswers(){var _0x3d80c=_0x40bf6c,_0x43e1c1=_0x174954,_0x3aaa0e=document[_0x43e1c1(0x1dd)](_0x43e1c1(0x220));for(var _0x45d168=0x0;_0x45d168<_0x3aaa0e[_0x43e1c1(0x1e7)];_0x45d168++){var _0x34b064=_0x3aaa0e[_0x45d168];_0x34b064[_0x43e1c1(0x216)][_0x43e1c1(0x21a)]=_0x34b064[_0x3d80c(0x17c)][_0x43e1c1(0x21a)]===_0x3d80c(0x1bc)?_0x43e1c1(0x1f5):_0x3d80c(0x1bc);}updateShowAnswerButton();}function showAnswers(){var _0x1d01db=_0x3af698,_0x55e0a8=_0x40bf6c,_0x10e06f=_0x174954;for(var _0x356473=0x0;_0x356473<quizData[_0x1d01db(0x172)];_0x356473++){var _0x425427=quizData[_0x356473],_0x2f7c8d=document[_0x10e06f(0x203)](_0x425427[_0x55e0a8(0x1f1)]);_0x2f7c8d[_0x10e06f(0x223)]=_0x10e06f(0x1f3)+_0x425427[_0x10e06f(0x1fd)]+'';}}function _0x525f(){var _0x1ef927=['red','results26','results21','20OmLOou','results14','none','quizzes1','from','inline-block','flex','answer0','answer34','quizzes13','color','encode','result4','answer23','result7','SHA-512','answer8','quizzes7','.show-answer-button','45534FbDpFL','answer27','quizzes23','results18','password-result','answer26','result2','preventDefault','18uiHWLv','results25','answer16','quizzes9','results6','length','answer7','results7','answer35','quizzes21','result9','740dcde2908450b2d5786d6ff674c7d5d4f0ab8e1a166c09fa086662354e8e74ab7caf3b842a664b7133f30d603929cb082cb2083591e76ee1b447901ede420c','quizzes4','answer22','24MDkGkB','quiz3','results1','answer10','answer12','results32','21OMOseB','.quiz-container','querySelectorAll','quizzes20','answer39','answer','155410emtFWh','quizzes32','innerHTML','817384OdmzPY','result0','results17','answer13','answer15','results5','results27','result8','results24','714302FpTHER','Invalid\x20Password','1190289qThfzS','results13','quizzes6','quizzes26','answer32','1473159foEpTg','quizzes15','display','quizzes31','1081800okUAlk','toString','results33','results16','133xMzsMC','results3','join','push','11MNhPed','answerId','results20','quizzes19','.answer','answer41','results28','results29','answer9','quiz4','results19','6323TbbSnF','quizzes16','then','190bcfeXL','results2','quizzes33','22239VAyvmT','quizzes3','quizzes14','answer31','result1','results12','answer43','quiz1','answer37','quizzes2','quizzes22','answer28','30tpSdHD','subtle','112wcLefv','results9','quiz5','60445tKPzaf','result3','value','results15','quizzes12','shift','quizzes30','answer33','answer19','966334vkQQRO','map','2512030izXAjD','results8','quizzes34','quizzes18','answer25','quizzes5','digest','42165cWRkPJ','resultId','3190032wBYonx','results22','answer14','Enter','answer17','inline','quizzes28','results30','answer1','password','quizzes11','results11','getElementById','answer4','quiz7','75232xMolvu','answer30','quizzes17','quiz9','Login\x20Successful','answer36','green','quizzes27','3088503LPMYSa','quiz8','key','quizzes10'];_0x525f=function(){return _0x1ef927;};return _0x525f();}
-    </script>
-</body>
-</html>
+         .color2 {
+         color: orange;
+         }
+
+         .color3 {
+         color: yellow;
+         }
+
+         .color4 {
+         color: green;
+         }
+
+         .color5 {
+         color: blue;
+         }
+
+         .color6 {
+         color: indigo;
+         }
+
+         .color7 {
+         color: violet;
+         }
+
+         .color8 {
+         color: lime;
+         }
+
+         .color9 {
+         color: lightcyan;
+         }
+
+         .color10 {
+         color: cadetblue;
+         }
+
+         .color11 {
+         color: deepskyblue;
+         }
+
+         .color12 {
+         color: olive;
+         }
